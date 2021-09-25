@@ -1,0 +1,190 @@
+_type: export
+__export_format: 4
+__export_date: 2021-09-11T19:29:57.017Z
+__export_source: insomnia.desktop.app:v2021.1.1
+resources:
+  - _id: req_3f5b586b0b8a49c0bd333fa4a3f6a73a
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631368465177
+    created: 1631368438815
+    url: http://localhost:9000/user/2
+    name: DELETE
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631368438815
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    parentId: null
+    modified: 1631366974086
+    created: 1631366974086
+    name: userMS
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_4ab2faae3cd845c1ab139f299265b2d2
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631368408619
+    created: 1631368131974
+    url: http://localhost:9000/user?page=0&size=3&sort=id,ASC
+    name: GET PAGED
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631368131974
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ad3859b199da4d44ac7d49db8f4d3e78
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631368417340
+    created: 1631368048018
+    url: http://localhost:9000/user/2
+    name: GET SPECIFIC
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631368048018
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_75e165401ca94ece85e072522cfdd77a
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631368444993
+    created: 1631367880312
+    url: http://localhost:9000/user
+    name: UPDATE
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": "1",
+        	"username": "testUp",
+        	"password": "1234567",
+        	"firstName": "testfirst",
+        	"lastName": "testelast",
+        	"email": "email@test.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_481c7c0affd9452d8acb18396094ed59
+    authentication: {}
+    metaSortKey: -1631367880312
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ac2a4a525eb4490aad263881f9cdfb93
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631367855417
+    created: 1631367848331
+    url: http://localhost:9000/user
+    name: GET
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631367848331
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_242ce173e9d244648881c6974d220db7
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631368448353
+    created: 1631366983219
+    url: http://localhost:9000/user
+    name: SAVE
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "test5",
+        	"password": "123456",
+        	"firstName": "testfirst5",
+        	"lastName": "testelast5",
+        	"email": "email5@test.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_bf452e14180344f2aa1bbc7c6e2f3586
+    authentication: {}
+    metaSortKey: -1631366983219
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_34250cd0d7a30ae101751415c4d7d552ccd5b9eb
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631366974299
+    created: 1631366974299
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1631366974299
+    _type: environment
+  - _id: jar_34250cd0d7a30ae101751415c4d7d552ccd5b9eb
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631366974302
+    created: 1631366974302
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_62fddf92c0b74809b10388d6c1ba2d82
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1631366974094
+    created: 1631366974094
+    fileName: userMS
+    contents: ""
+    contentType: yaml
+    _type: api_spec
