@@ -3,12 +3,24 @@ package com.amdocs.usp.userms.view.converter;
 import com.amdocs.usp.userms.model.entity.UserEntity;
 import com.amdocs.usp.userms.view.object.PageVO;
 import com.amdocs.usp.userms.view.object.UserVO;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserConverter implements IConverter<UserEntity, UserVO> {
+    private static UserConverter INSTANCE;
+
+    public static UserConverter getInstance() {
+        if (Objects.isNull(INSTANCE)) {
+            INSTANCE = new UserConverter();
+        }
+        return INSTANCE;
+    }
+
     @Override
     public List<UserVO> toVO(List<UserEntity> all) {
         return all.stream().map(this::fromEntityToVO).collect(Collectors.toList());
@@ -40,6 +52,7 @@ public class UserConverter implements IConverter<UserEntity, UserVO> {
         UserEntity entity = new UserEntity();
         entity.setUsername(data.getUsername());
         entity.setId(data.getId());
+        entity.setPassword(data.getPassword());
         entity.setFirstName(data.getFirstName());
         entity.setLastName(data.getFirstName());
         entity.setEmail(data.getEmail());
