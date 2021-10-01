@@ -1,21 +1,30 @@
 _type: export
 __export_format: 4
-__export_date: 2021-09-11T19:29:57.017Z
-__export_source: insomnia.desktop.app:v2021.1.1
+__export_date: 2021-10-01T12:49:17.951Z
+__export_source: insomnia.desktop.app:v2021.5.3
 resources:
-  - _id: req_3f5b586b0b8a49c0bd333fa4a3f6a73a
+  - _id: req_727ea30e1615420a835242c5707ca04a
     parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
-    modified: 1631368465177
-    created: 1631368438815
-    url: http://localhost:9000/user/2
-    name: DELETE
+    modified: 1633092493384
+    created: 1633092001913
+    url: http://localhost:9000/user/login
+    name: LOGIN
     description: ""
-    method: DELETE
-    body: {}
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "testUp",
+        	"password": "1234567"
+        }
     parameters: []
-    headers: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_bde80f8654a74e1eb5e772199e8b62c9
     authentication: {}
-    metaSortKey: -1631368438815
+    metaSortKey: -1633092001913
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -32,6 +41,27 @@ resources:
     description: ""
     scope: collection
     _type: workspace
+  - _id: req_3f5b586b0b8a49c0bd333fa4a3f6a73a
+    parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
+    modified: 1633092509968
+    created: 1631368438815
+    url: http://localhost:9000/user/1
+    name: DELETE
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631368438815
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_4ab2faae3cd845c1ab139f299265b2d2
     parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
     modified: 1631368408619
@@ -55,7 +85,7 @@ resources:
     _type: request
   - _id: req_ad3859b199da4d44ac7d49db8f4d3e78
     parentId: wrk_a14b4764ff73446ba1b8c6ce1972a522
-    modified: 1631368417340
+    modified: 1633092450343
     created: 1631368048018
     url: http://localhost:9000/user/2
     name: GET SPECIFIC
