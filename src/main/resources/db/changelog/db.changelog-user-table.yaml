@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-user
+      author: amdocs.usp
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExist:
+              tableName: user_details
+
+      changes:
+        - createTable:
+            tableName: user_details
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_primary_key
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: username
+                  type: ${textColumnType}
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: CHAR(64)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: salt
+                  type: CHAR(32)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: ${textColumnType}
+              - column:
+                  name: last_name
+                  type: ${textColumnType}
+              - column:
+                  name: email
+                  type: ${textColumnType}
