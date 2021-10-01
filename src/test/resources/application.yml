@@ -1,0 +1,5 @@
+spring:
+  liquibase:
+    parameters:
+      textColumnType: VARCHAR(250)
+    contexts: nonprod

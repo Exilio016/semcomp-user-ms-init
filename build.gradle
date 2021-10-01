@@ -1,0 +1,104 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.amdocs.usp'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.4'
+
+    implementation 'org.liquibase:liquibase-core:4.4.3'
+
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+
+    runtimeOnly 'org.postgresql:postgresql:42.2.23.jre7'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    //Tests
+    testImplementation('org.projectlombok:lombok:1.18.20')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
+
+    testImplementation('junit:junit:4.13.2')
+    testImplementation('org.junit.vintage:junit-vintage-engine:5.7.2')
+
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.2')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.7.2')
+    testRuntimeClasspath('org.junit.jupiter:junit-jupiter-engine:5.7.2')
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.5.4') {
+        exclude module: 'junit'
+    }
+
+    testRuntimeOnly("com.h2database:h2:1.4.200")
+
+
+}
+
+//Test configurations START
+
+//Changing logging and properties
+test {
+    useJUnitPlatform()
+    minHeapSize = "512m"
+    maxHeapSize = "1024m"
+    ignoreFailures = false
+}
+
+//setting the Application Tests source
+sourceSets {
+    testApplication {
+        java {
+            compileClasspath += main.compileClasspath + test.compileClasspath
+            runtimeClasspath += main.runtimeClasspath + test.runtimeClasspath
+            srcDir file('src/testApplication/java')
+        }
+        resources.srcDir 'src/testApplication/resources'
+
+    }
+}
+
+//creating the task to run the application tests
+task testApplication(type: Test, dependsOn: build) {
+    useJUnitPlatform()
+    minHeapSize = "512m"
+    maxHeapSize = "1024m"
+    ignoreFailures = false
+
+    testClassesDirs = sourceSets.testApplication.output.classesDirs
+    classpath = sourceSets.testApplication.runtimeClasspath
+    outputs.upToDateWhen { false }
+}
+
+//Report for test errors
+tasks.withType(Test) {
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+//Test configurations END
+
+tasks.withType(Copy) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
